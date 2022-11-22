@@ -7,6 +7,7 @@ package crud.java.mysql;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.Statement;
 /**
  *
  * @author Arnob
@@ -14,21 +15,15 @@ import java.sql.DriverManager;
 public class db {
     public static Connection mycon(){
        Connection con = null ;
-   
+       
        try {
           Class.forName("com.mysql.jdbc.Driver");
-          con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pos","root","");
-          return con;      
+          con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pos?zeroDateTimeBehavior=convertToNull","root","");
+          return con;
        } catch (Exception e) {
-           
+           System.err.println(e);
            return null;
        }
-   
-   
-   
-   
-   
-   
    } 
 }
 

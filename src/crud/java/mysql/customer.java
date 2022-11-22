@@ -5,6 +5,8 @@
  */
 package crud.java.mysql;
 
+import java.sql.Statement;
+
 /**
  *
  * @author Arnob
@@ -112,7 +114,16 @@ public class customer extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // save Button code
+        String name = c_name.getText();
+        String tp = c_tp.getText();
         
+        try{
+            Statement s = db.mycon().createStatement();
+            s.executeUpdate("INSERT INTO customer(Customer_Name,Customer_TP ) VALUES ('"+name+"','"+tp+"')"); 
+            
+        }catch(Exception e){
+            
+        }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
