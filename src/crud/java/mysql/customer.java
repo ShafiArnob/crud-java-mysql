@@ -152,7 +152,7 @@ public class customer extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(c_tp, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(79, 79, 79))
         );
@@ -224,7 +224,19 @@ public class customer extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        // Update Button code
+        String name = c_name.getText();
+        String tp = c_tp.getText();
+        String id = c_search.getText();
+        
+        try{
+            Statement s = db.mycon().createStatement();
+            s.executeUpdate("UPDATE customer SET Customer_Name='"+name+"',Customer_TP='"+tp+"' WHERE cid='"+id+"'");
+            
+        }catch(Exception e){
+            System.err.println(e);
+        }
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void c_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_searchActionPerformed
