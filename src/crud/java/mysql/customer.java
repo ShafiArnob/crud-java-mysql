@@ -283,7 +283,15 @@ public class customer extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // Mouse clicked
+        int r = jTable1.getSelectedRow();
         
+        String id = jTable1.getValueAt(r, 0).toString();
+        String name = jTable1.getValueAt(r, 1).toString();
+        String tp = jTable1.getValueAt(r, 2).toString();
+        
+        c_search.setText(id);
+        c_name.setText(name);
+        c_tp.setText(tp);
     }//GEN-LAST:event_jTable1MouseClicked
 
     /**
